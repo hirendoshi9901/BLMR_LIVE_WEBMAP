@@ -84,7 +84,7 @@ var legend = L.control({ position: "bottomleft" });
 
 legend.onAdd = function(map) {
   var div = L.DomUtil.create("div", "legend");
-  div.innerHTML += "<h4>Legend</h4><h8>L&L Agreement Expiry Status</h8>";
+  div.innerHTML += "<h4>Legend</h4><p><h6>L&L Agreement Expiry Status<h6></p>";
   div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:Green"></i><span>More than 30 Days to Expiry</span><br>';
   div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:Orange"></i><span>Expiry within a Month</span><br>';
   div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:red"></i><span>Expiry within 5 Days</span><br>';	
