@@ -12,6 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 
   <!-- Leaflet (CSS and JS) -->
+  <link rel="stylesheet" href="legend.css">	
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
@@ -77,6 +78,26 @@
       scrollWheelZoom: true,
       tap: false
     }).setView([41.76,-72.69], 11); // default center is overridden by Google Sheet options and points
+    
+    /*Legend specific*/
+var legend = L.control({ position: "bottomleft" });
+
+legend.onAdd = function(map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML += "<h4>Legend</h4>";
+  div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:Green"></i><span>More than 30 Days to Expiry</span><br>';
+  div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:Orange"></i><span>Expiry within a Month</span><br>';
+  div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:red"></i><span>Expiry within 5 Days</span><br>';	
+  div.innerHTML += '<i class="fas fa-map-marker" style="font-size:20px;color:black"></i><span>Expired</span><br>';	
+
+
+  return div;
+};
+
+legend.addTo(map);
+
+/*End Legend specific*/
+    
   </script>
 
   <script type="text/javascript" src="./google-doc-url.js"></script>
